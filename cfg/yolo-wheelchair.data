@@ -1,0 +1,5 @@
+classes=2
+train=/work/Yolo-Fastest/wheelchair/train.txt
+valid=/work/Yolo-Fastest/wheelchair/test.txt
+names=/work/Yolo-Fastest/wheelchair/cfg/yolo-wheelchair.names
+backup=/work/Yolo-Fastest/wheelchair/backup
