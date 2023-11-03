@@ -52,14 +52,11 @@ mkdir -p backup
 
 ##############################
 if [ -e ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py ]; then
-	git -C ../keras-YOLOv3-model-set checkout \
-		tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
-	sed "s|model_input_shape = \"160x160\"|model_input_shape = \"${INPUT_W}x${INPUT_H}\"|" \
-		-i ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
-
 	echo "python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5"
 	python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5 | tee convert.log
 
+	git -C ../keras-YOLOv3-model-set checkout tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
+	sed "s|model_input_shape = \"160x160\"|model_input_shape = \"${INPUT_W}x${INPUT_H}\"|" -i ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
 	python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py \
 		--keras_model_file backup/${NAME}.h5 \
 		--annotation_file train.txt --output_file \
