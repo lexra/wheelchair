@@ -8,12 +8,14 @@ NC='\033[0m'
 
 ##############################
 NAME=yolo-wheelchair
+#NAME=yolov3-wheelchair
+#NAME=tinyyolov3-wheelchair
 CFG="cfg/${NAME}.cfg"
 GPUS="-gpus 0"
 WEIGHTS=""
 
-INPUT_W=$(cat cfg/yolo-wheelchair.cfg | grep width | awk -F '=' '{print $2}')
-INPUT_H=$(cat cfg/yolo-wheelchair.cfg | grep height | awk -F '=' '{print $2}')
+INPUT_W=$(cat ${CFG} | grep width | awk -F '=' '{print $2}')
+INPUT_H=$(cat ${CFG} | grep height | awk -F '=' '{print $2}')
 
 function append_train_test_list () {
 	local D=$1
@@ -54,10 +56,10 @@ if [ -e ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.
 		tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
 	sed "s|model_input_shape = \"160x160\"|model_input_shape = \"${INPUT_W}x${INPUT_H}\"|" \
 		-i ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
-	python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py \
-		--config_path cfg/${NAME}.cfg \
-		--weights_path backup/${NAME}_final.weights \
-		--output_path backup/${NAME}.h5
+
+	echo "python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5"
+	python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5 | tee convert.log
+
 	python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py \
 		--keras_model_file backup/${NAME}.h5 \
 		--annotation_file train.txt --output_file \
@@ -71,6 +73,6 @@ fi
 ##############################
 echo ""
 echo -e "${YELLOW} Detector Test: ${NC}"
-echo -e "${YELLOW} ../darknet detector test cfg/yolo-wheelchair.data cfg/yolo-wheelchair.cfg backup/yolo-wheelchair_final.weights pixmaps/push_wheelchair.jpg -ext_output -dont_show ${NC}"
+echo -e "${YELLOW} ../darknet detector test cfg/${NAME}.data cfg/${NAME}.cfg backup/${NAME}_final.weights pixmaps/push_wheelchair.jpg -ext_output -dont_show ${NC}"
 echo ""
 exit 0
