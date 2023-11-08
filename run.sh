@@ -9,7 +9,7 @@ NC='\033[0m'
 ##############################
 NAME=yolo-wheelchair
 #NAME=yolov3-wheelchair
-#NAME=tinyyolov3-wheelchair
+#NAME=yolov3-tiny
 CFG="cfg/${NAME}.cfg"
 GPUS="-gpus 0"
 WEIGHTS=""
@@ -41,6 +41,7 @@ append_train_test_list kaggle jpg
 
 ##############################
 sed "s|/work/Yolo-Fastest/wheelchair|`pwd`|" -i cfg/${NAME}.data
+[ 0 -ne $(cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | wc -l) ] && cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | tail -1 > cfg/${NAME}.anchors
 
 ##############################
 [ "$TERM" == "xterm" ] && GPUS="${GPUS} -dont_show"
@@ -52,16 +53,18 @@ mkdir -p backup
 
 ##############################
 if [ -e ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py ]; then
-	echo "python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5"
-	python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5 | tee convert.log
-
 	git -C ../keras-YOLOv3-model-set checkout tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
 	sed "s|model_input_shape = \"160x160\"|model_input_shape = \"${INPUT_W}x${INPUT_H}\"|" -i ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
+
+	echo "python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5"
+	python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5 || true
+
 	python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py \
 		--keras_model_file backup/${NAME}.h5 \
 		--annotation_file train.txt --output_file \
-		backup/${NAME}.tflite
-	xxd -i backup/${NAME}.tflite > backup/${NAME}-$(date +'%Y%m%d').cc
+		backup/${NAME}.tflite || true
+	#xxd -i backup/${NAME}.tflite > backup/${NAME}-$(date +'%Y%m%d').cc || true
+	xxd -i backup/${NAME}.tflite > backup/${NAME}.cc || true
 fi
 
 ##############################
