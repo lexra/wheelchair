@@ -41,6 +41,8 @@ append_train_test_list kaggle jpg
 ##############################
 sed "s|/work/Yolo-Fastest/wheelchair|`pwd`|" -i cfg/${NAME}.data
 [ 0 -ne $(cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | wc -l) ] && cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | tail -1 > cfg/${NAME}.anchors
+export LD_LIBRARY_PATH=/usr/local/cuda/targets/x86_64-linux/lib
+export PATH=/usr/local/cuda/bin:${PATH}
 
 ##############################
 [ "$TERM" == "xterm" ] && GPUS="${GPUS} -dont_show"
