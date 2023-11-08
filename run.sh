@@ -8,7 +8,6 @@ NC='\033[0m'
 
 ##############################
 NAME=yolo-wheelchair
-#NAME=yolov3-wheelchair
 #NAME=yolov3-tiny
 CFG="cfg/${NAME}.cfg"
 GPUS="-gpus 0"
