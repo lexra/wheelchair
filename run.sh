@@ -50,6 +50,8 @@ export PATH=/usr/local/cuda/bin:${PATH}
 mkdir -p backup
 
 [ -e backup/${NAME}_last.weights ] && WEIGHTS=backup/${NAME}_last.weights
+echo ""
+echo -e "${YELLOW} ../darknet detector train cfg/${NAME}.data ${CFG} ${WEIGHTS} ${GPUS} -mjpeg_port 8090 -map ${NC}"
 ../darknet detector train cfg/${NAME}.data ${CFG} ${WEIGHTS} ${GPUS} -mjpeg_port 8090 -map
 
 ##############################
@@ -57,18 +59,31 @@ if [ -e ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.
 	git -C ../keras-YOLOv3-model-set checkout tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
 	sed "s|model_input_shape = \"160x160\"|model_input_shape = \"${INPUT_W}x${INPUT_H}\"|" -i ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
 
-	echo "python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5"
-	python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5 || true
+	echo ""
+	echo -e "${YELLOW} python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5 ${NC}"
+	rm -rf backup/${NAME}.h5
+	python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py \
+		--config_path cfg/${NAME}.cfg \
+		--weights_path backup/${NAME}_final.weights \
+		--output_path backup/${NAME}.h5 || true
 
-	python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py \
+	echo ""
+	echo -e "${YELLOW} python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py --keras_model_file backup/${NAME}.h5 --annotation_file train.txt --output_file backup/${NAME}.tflite ${NC}"
+	[ -e backup/${NAME}.h5 ] && \
+		python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py \
 		--keras_model_file backup/${NAME}.h5 \
-		--annotation_file train.txt --output_file \
-		backup/${NAME}.tflite || true
-	#xxd -i backup/${NAME}.tflite > backup/${NAME}-$(date +'%Y%m%d').cc || true
-	xxd -i backup/${NAME}.tflite > backup/${NAME}.cc || true
+		--annotation_file train.txt \
+		--output_file backup/${NAME}.tflite
+
+	echo ""
+	echo -e "${YELLOW} xxd -i backup/${NAME}.tflite > backup/${NAME}.cc ${NC}"
+	[ -e backup/${NAME}.tflite ] && \
+		xxd -i backup/${NAME}.tflite > backup/${NAME}.cc
 fi
 
 ##############################
+echo ""
+echo -e "${YELLOW} ../darknet detector map cfg/${NAME}.data cfg/${NAME}.cfg backup/${NAME}_final.weights -iou_thresh 0.5 ${NC}"
 ../darknet detector map cfg/${NAME}.data cfg/${NAME}.cfg backup/${NAME}_final.weights -iou_thresh 0.5 | grep -v '\-points'
 
 ##############################
