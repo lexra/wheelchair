@@ -40,7 +40,15 @@ append_train_test_list kaggle jpg
 
 ##############################
 sed "s|/work/Yolo-Fastest/wheelchair|`pwd`|" -i cfg/${NAME}.data
+
+##############################
+echo '' && echo -e "${YELLOW} ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -width ${INPUT_W} -height ${INPUT_H} -dont_show ${NC}"
+echo '' | ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -width ${INPUT_W} -height ${INPUT_H} -dont_show
+
+##############################
 [ 0 -ne $(cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | wc -l) ] && cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | tail -1 > cfg/${NAME}.anchors
+
+##############################
 export LD_LIBRARY_PATH=/usr/local/cuda/targets/x86_64-linux/lib
 export PATH=/usr/local/cuda/bin:${PATH}
 
