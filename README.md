@@ -60,11 +60,7 @@ function append_train_test_list () {
 
         for F in `find $(pwd)/datasets/${D} -name '*.txt'` ; do
                 R=$(($N % 10))
-                if [ ${R} -eq 1 ]; then
-                        echo ${F} | sed "s|.txt$|.${E}|" >> test.txt
-                else echo ${F} | sed "s|.txt$|.${E}|"
-                        echo ${F} | sed "s|.txt$|.${E}|" >> train.txt
-                fi
+                if [ ${R} -eq 1 ]; then echo ${F} | sed "s|.txt$|.${E}|" >> test.txt ; else echo ${F} | sed "s|.txt$|.${E}|" >> train.txt ; fi
                 N=$(($N + 1))
         done
 }
