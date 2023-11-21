@@ -32,7 +32,16 @@
 
 ### 1.2 Bounding Box Labeling
 
-Here we use the <a href=https://github.com/developer0hye/Yolo_Label>YoloLabel</a> for Bounding Box Labeling of a given Assortment Directory. 
+Here the format of the annotation is: 
+
+```
+<class> <x> <y> <width> <height> 
+ex: 0 0.25 0.44 0.5 0.8
+class is the object class, (x,y) are centre coordinates of the bounding box.
+width, height represent width and height of the bounding box. 
+```
+
+And we use the <a href=https://github.com/developer0hye/Yolo_Label>YoloLabel</a> for Bounding Box Labeling of a given Assortment Directory. 
 
 
 <img src=https://github.com/lexra/wheelchair/assets/33512027/bd262a8b-75ac-4e5a-9b45-497bb62422d0 width=800/>
@@ -50,15 +59,6 @@ cat datasets/kaggle/00314.txt
 ```
 
 As the picture, `kaggle/00314.jpg`, above, The Bounding Box txt file, `kaggle/00314.txt`, is generated accordingly. 
-
-The format of the annotation is: 
-
-```
-<class> <x> <y> <width> <height> 
-ex: 0 0.25 0.44 0.5 0.8
-class is the object class, (x,y) are centre coordinates of the bounding box.
-width, height represent width and height of the bounding box. 
-```
 
 ## 2. Generating Train List and Test List 
 
