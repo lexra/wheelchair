@@ -56,7 +56,8 @@ The format of the annotation is:
 ```
 <class> <x> <y> <width> <height> 
 ex: 0 0.25 0.44 0.5 0.8
-class is the object class, (x,y) are centre coordinates of the bounding box. width, height represent width and height of the bounding box
+class is the object class, (x,y) are centre coordinates of the bounding box.
+width, height represent width and height of the bounding box. 
 ```
 
 ## 2. Generating Train List and Test List 
