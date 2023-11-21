@@ -1,4 +1,4 @@
-# Wheelchair Detection
+# Dataset for Wheelchair Detection
 
 ## 1. Custom Dataset
 
