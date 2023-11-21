@@ -13,8 +13,8 @@ CFG="cfg/${NAME}.cfg"
 GPUS="-gpus 0"
 WEIGHTS=""
 
-INPUT_W=$(cat ${CFG} | grep width | awk -F '=' '{print $2}')
-INPUT_H=$(cat ${CFG} | grep height | awk -F '=' '{print $2}')
+WIDTH=$(cat ${CFG} | grep width | awk -F '=' '{print $2}')
+HEIGHT=$(cat ${CFG} | grep height | awk -F '=' '{print $2}')
 
 function append_train_test_list () {
 	local D=$1
@@ -23,13 +23,13 @@ function append_train_test_list () {
 	local R=0
 	for F in `find $(pwd)/datasets/${D} -name '*.txt'` ; do
 		R=$(($N % 10))
-		if [ ${R} -eq 1 ]; then echo ${F} | sed "s|.txt$|.${E}|" ; echo ${F} | sed "s|.txt$|.${E}|" >> test.txt ; else echo ${F} | sed "s|.txt$|.${E}|" ; echo ${F} | sed "s|.txt$|.${E}|" >> train.txt ; fi
+		if [ ${R} -eq 1 ]; then echo ${F} | sed "s|.txt$|.${E}|" >> test.txt ; else echo ${F} | sed "s|.txt$|.${E}|" >> train.txt ; fi
 		N=$(($N + 1))
 	done
 }
 
 ##############################
-rm -rfv train.txt test.txt
+rm -rf train.txt test.txt
 
 append_train_test_list mobilityaids png
 append_train_test_list roboflow jpg
@@ -42,8 +42,8 @@ append_train_test_list kaggle jpg
 sed "s|/work/Yolo-Fastest/wheelchair|`pwd`|" -i cfg/${NAME}.data
 
 ##############################
-echo '' && echo -e "${YELLOW} ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -width ${INPUT_W} -height ${INPUT_H} -dont_show ${NC}"
-echo '' | ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -width ${INPUT_W} -height ${INPUT_H} -dont_show
+echo '' && echo -e "${YELLOW} ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -width ${WIDTH} -height ${HEIGHT} -dont_show ${NC}"
+echo '' | ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -width ${WIDTH} -height ${HEIGHT} -dont_show
 
 ##############################
 [ 0 -ne $(cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | wc -l) ] && cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | tail -1 > cfg/${NAME}.anchors
@@ -65,7 +65,7 @@ echo -e "${YELLOW} ../darknet detector train cfg/${NAME}.data ${CFG} ${WEIGHTS} 
 ##############################
 if [ -e ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py ]; then
 	git -C ../keras-YOLOv3-model-set checkout tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
-	sed "s|model_input_shape = \"160x160\"|model_input_shape = \"${INPUT_W}x${INPUT_H}\"|" -i ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
+	sed "s|model_input_shape = \"160x160\"|model_input_shape = \"${WIDTH}x${HEIGHT}\"|" -i ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/post_train_quant_convert_demo.py
 
 	echo ""
 	echo -e "${YELLOW} python3 ../keras-YOLOv3-model-set/tools/model_converter/fastest_1.1_160/convert.py --config_path cfg/${NAME}.cfg --weights_path backup/${NAME}_final.weights --output_path backup/${NAME}.h5 ${NC}"
