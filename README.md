@@ -185,13 +185,15 @@ random=1
 ### 4.1 Train
 
 ```bash
-../darknet detector train cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg backup/yolov3-tiny_last.weights -gpus 0 -dont_show -map
+../darknet detector train cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg \
+    backup/yolov3-tiny_last.weights -gpus 0 -dont_show -map
 ```
 
 ### 4.2  mean Average Precision (mAP@0.50)
 
 ```bash
-../darknet detector map cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg backup/yolov3-tiny_final.weights -iou_thresh 0.5
+../darknet detector map cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg \
+    backup/yolov3-tiny_final.weights -iou_thresh 0.5
 ```
 
 ```bash
