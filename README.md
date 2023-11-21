@@ -125,7 +125,15 @@ batch=32
 subdivisions=1
 ```
 
+#### 3.3.3 classes
 
+```bash
+...
+classes=2
+...
+classes=2
+...
+```
 
 
 
