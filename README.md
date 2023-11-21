@@ -37,20 +37,16 @@ Here we use the `YoloLabel` (https://github.com/developer0hye/Yolo_Label) for Bo
 <img src=https://github.com/lexra/wheelchair/assets/33512027/bd262a8b-75ac-4e5a-9b45-497bb62422d0 width=800/>
 
 ```bash
-ls -l datasets/kaggle
-total 20636
--rw-rw-r-- 1 regfae regfae  14805 Nov 18 02:17 00000.jpg
--rw-rw-r-- 1 regfae regfae     39 Nov 18 02:17 00000.txt
--rw-rw-r-- 1 regfae regfae  22666 Nov 18 02:17 00001.jpg
--rw-rw-r-- 1 regfae regfae     39 Nov 18 02:17 00001.txt
--rw-rw-r-- 1 regfae regfae  27163 Nov 18 02:17 00002.jpg
--rw-rw-r-- 1 regfae regfae     39 Nov 18 02:17 00002.txt
--rw-rw-r-- 1 regfae regfae  26984 Nov 18 02:17 00003.jpg
--rw-rw-r-- 1 regfae regfae     39 Nov 18 02:17 00003.txt
--rw-rw-r-- 1 regfae regfae  37373 Nov 18 02:17 00004.jpg
--rw-rw-r-- 1 regfae regfae     39 Nov 18 02:17 00004.txt
--rw-rw-r-- 1 regfae regfae  20670 Nov 18 02:17 00005.jpg
--rw-rw-r-- 1 regfae regfae     39 Nov 18 02:17 00005.txt
--rw-rw-r-- 1 regfae regfae  25998 Nov 18 02:17 00006.jpg
-...
+ls -l datasets/kaggle/00314.jpg
+-rwxrwxr-x 1 regfae regfae 53505 Nov 18 02:17 datasets/kaggle/00314.jpg
 ```
+
+```bash
+cat datasets/kaggle/00314.txt
+1 0.229654 0.543033 0.169454 0.274590
+0 0.323300 0.486680 0.115942 0.403689
+0 0.775362 0.501025 0.154961 0.375000
+```
+
+As the picture above, The Bounding Box txt file, `kaggle/00314.txt`, is generated accordingly complied with `kaggle/00314.jpg`. 
+
