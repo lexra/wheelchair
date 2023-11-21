@@ -1,5 +1,7 @@
 # Dataset for YOLOv3 Wheelchair Detection
 
+![image](https://github.com/lexra/wheelchair/assets/33512027/e61e8897-96de-4653-a72b-3c2bcf98a21b)
+
 ## 1. Custom Dataset
 
 ### 1.1 Assortment Directories
