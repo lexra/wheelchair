@@ -1,6 +1,8 @@
 # Wheelchair Detection
 
-## 1. Dataset Directory
+## 1. Custom Dataset
+
+### 1.1 Assortment Directories
 
 ```bash
 [datasets] ---+--- [date-20230821] ------+ d00000.jpg
@@ -27,3 +29,5 @@
                                          + w00001.jpg
                                          + ...
 ```
+
+### 1.2 Bounding Box Labeling Tool
