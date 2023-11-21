@@ -87,6 +87,26 @@ append_train_test_list kaggle jpg
 
 Test List occupied one-tenth, and Train List occupied nine-tenth. 
 
+## 3. yolov3-tiny.cfg, yolov3-tiny.data, yolov3-tiny.name
+
+### 3.1 yolov3-tiny.name
+
+```bash
+person
+wheelchair
+```
+
+### 3.2 yolov3-tiny.data
+
+```
+classes=2
+train=/work/Yolo-Fastest/wheelchair/train.txt
+valid=/work/Yolo-Fastest/wheelchair/test.txt
+names=/work/Yolo-Fastest/wheelchair/cfg/yolov3-tiny.names
+backup=/work/Yolo-Fastest/wheelchair/backup
+```
+
+
 
 
 
