@@ -1,4 +1,4 @@
-# Dataset for Wheelchair Detection
+# Dataset for YOLOv3 Wheelchair Detection
 
 ## 1. Custom Dataset
 
