@@ -30,7 +30,7 @@
                                          + ...
 ```
 
-### 1.2 Bounding Box Labeling Tool
+### 1.2 Bounding Box Labeling
 
 Here we use the `YoloLabel` (https://github.com/developer0hye/Yolo_Label) for Bounding Box Labeling of a given Assortment Directory. 
 
