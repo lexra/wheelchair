@@ -177,6 +177,14 @@ random=1
 ## Training
 
 ```bash
+NAME=yolo-wheelchair
+#NAME=yolov3-tiny
+CFG="cfg/${NAME}.cfg"
+GPUS="-gpus 0"
+WEIGHTS=""
+WIDTH=$(cat ${CFG} | grep width | awk -F '=' '{print $2}')
+HEIGHT=$(cat ${CFG} | grep height | awk -F '=' '{print $2}')
+
 ../darknet detector train cfg/${NAME}.data ${CFG} ${WEIGHTS} ${GPUS} -mjpeg_port 8090 -map
 ```
 
