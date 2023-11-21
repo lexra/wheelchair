@@ -50,3 +50,18 @@ cat datasets/kaggle/00314.txt
 
 As the picture above, The Bounding Box txt file, `kaggle/00314.txt`, is generated accordingly complied with the `kaggle/00314.jpg`. 
 
+## 2. Generate a Train List
+
+
+
+
+
+
+
+
+
+
+
+
+
+
