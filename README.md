@@ -48,5 +48,5 @@ cat datasets/kaggle/00314.txt
 0 0.775362 0.501025 0.154961 0.375000
 ```
 
-As the picture above, The Bounding Box txt file, `kaggle/00314.txt`, is generated accordingly complied with `kaggle/00314.jpg`. 
+As the picture above, The Bounding Box txt file, `kaggle/00314.txt`, is generated accordingly complied with the `kaggle/00314.jpg`. 
 
