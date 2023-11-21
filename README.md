@@ -31,3 +31,5 @@
 ```
 
 ### 1.2 Bounding Box Labeling Tool
+
+`Yolo-Label`
