@@ -42,10 +42,8 @@ append_train_test_list kaggle jpg
 sed "s|/work/Yolo-Fastest/wheelchair|`pwd`|" -i cfg/${NAME}.data
 
 ##############################
-echo '' && echo -e "${YELLOW} ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -width ${WIDTH} -height ${HEIGHT} -dont_show ${NC}"
+echo '' && echo -e "${YELLOW} echo '' | ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -width ${WIDTH} -height ${HEIGHT} -dont_show ${NC}"
 echo '' | ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -width ${WIDTH} -height ${HEIGHT} -dont_show
-
-##############################
 [ 0 -ne $(cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | wc -l) ] && cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | tail -1 > cfg/${NAME}.anchors
 
 ##############################
