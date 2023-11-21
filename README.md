@@ -50,7 +50,43 @@ cat datasets/kaggle/00314.txt
 
 As the picture above, The Bounding Box txt file, `kaggle/00314.txt`, is generated accordingly complied with the `kaggle/00314.jpg`. 
 
-## 2. Generate a Train List
+## 2. Generating Train List and Test List 
+
+### 2.1 function append_train_test_list ()
+
+```bash
+function append_train_test_list () {
+        local D=$1
+        local E=$2
+        local N=0
+        local R=0
+        for F in `find $(pwd)/datasets/${D} -name '*.txt'` ; do
+                R=$(($N % 10))
+                if [ ${R} -eq 1 ]; then
+                        echo ${F} | sed "s|.txt$|.${E}|"
+                        echo ${F} | sed "s|.txt$|.${E}|" >> test.txt
+                else echo ${F} | sed "s|.txt$|.${E}|"
+                        echo ${F} | sed "s|.txt$|.${E}|" >> train.txt
+                fi
+                N=$(($N + 1))
+        done
+}
+```
+
+The first argument to append_train_test_list() is `the Assortment Directory`; the second is the pictures file extension in that given Directory. 
+
+### 2.2 Regenerating Train List and Test List 
+
+```bash
+rm -rfv train.txt test.txt
+
+append_train_test_list mobilityaids png
+append_train_test_list roboflow jpg
+append_train_test_list wheelchair jpg
+append_train_test_list person jpg
+append_train_test_list date-20230821 jpg
+append_train_test_list kaggle jpg
+```
 
 
 
