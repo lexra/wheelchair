@@ -110,6 +110,11 @@ names=/work/Yolo-Fastest/wheelchair/cfg/yolov3-tiny.names
 backup=/work/Yolo-Fastest/wheelchair/backup
 ```
 
+### 3.3 yolov3-tiny.cfg
+
+```bash
+wget https://github.com/pjreddie/darknet/blob/master/cfg/yolov3-tiny.cfg
+```
 
 
 
