@@ -142,12 +142,7 @@ filters = (classes + 5) * 3
 filters=21
 
 ```python
-[convolutional]
-size=1
-stride=1
-pad=1
 filters=21
-activation=linear
 
 [yolo]
 mask = 3,4,5
@@ -161,12 +156,7 @@ random=1
 ```
 
 ```python
-[convolutional]
-size=1
-stride=1
-pad=1
 filters=21
-activation=linear
 
 [yolo]
 mask = 0,1,2
