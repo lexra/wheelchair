@@ -321,7 +321,7 @@ Saving weights to /work/Yolo-Fastest/wheelchair/backup/yolo-wheelchair_final.wei
 
 After training completed, `backup/yolov3-tiny_final.weights` is generated. 
 
-### 5.1.1 Checkpoint
+### 5.1.1 Checkpoints
 
 ```bash
 regfae@regulus-ASUS:/work/Yolo-Fastest/wheelchair$ ls -l backup/yolov3-tiny*
