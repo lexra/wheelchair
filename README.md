@@ -133,9 +133,13 @@ classes=2
 
 ### 3.3.4
 
+Calculate filters according to the following formula: 
+
 ```python
 filters = (classes + 5) * 3
 ```
+
+filters=21
 
 ```python
 [convolutional]
