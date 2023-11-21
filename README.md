@@ -128,14 +128,52 @@ subdivisions=1
 #### 3.3.3 classes
 
 ```python
-...
 classes=2
-...
-classes=2
-...
 ```
 
+### 3.3.4
 
+```python
+filters = (classes + 5) * 3
+```
+
+```python
+[convolutional]
+size=1
+stride=1
+pad=1
+filters=21
+activation=linear
+
+[yolo]
+mask = 3,4,5
+anchors = 10,14,  23,27,  37,58,  81,82,  135,169,  344,319
+classes=2
+num=6
+jitter=.3
+ignore_thresh = .7
+truth_thresh = 1
+random=1
+```
+
+```python
+[convolutional]
+size=1
+stride=1
+pad=1
+filters=21
+activation=linear
+
+[yolo]
+mask = 0,1,2
+anchors = 10,14,  23,27,  37,58,  81,82,  135,169,  344,319
+classes=2
+num=6
+jitter=.3
+ignore_thresh = .7
+truth_thresh = 1
+random=1
+```
 
 
 
