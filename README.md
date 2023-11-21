@@ -125,13 +125,20 @@ batch=32
 subdivisions=1
 ```
 
-#### 3.3.3 classes
+#### 3.3.3 Width, Height
+
+```python
+width=416
+height=416
+```
+
+#### 3.3.4 classes
 
 ```python
 classes=2
 ```
 
-#### 3.3.4 filters
+#### 3.3.5 filters
 
 Calculate filters according to the following formula: `filters=21`
 
