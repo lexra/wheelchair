@@ -249,6 +249,39 @@ anchors = 10,14,  23,27,  37,58,  81,82,  135,169,  344,319
 
 And here only the 0/1/2 pairs , `10,14,  23,27,  37,58`, work.
 
+## 4. Anchors
+
+### 4.1 Calc_anchors
+
+```bash
+ echo '' | ../darknet detector calc_anchors cfg/yolov3-tiny.data -num_of_clusters 6 -width 416 -height 416 -dont_show
+```
+
+```bash
+ CUDA-version: 12020 (12020), cuDNN: 8.9.6, CUDNN_HALF=1, GPU count: 1
+ CUDNN_HALF=1
+ OpenCV version: 4.2.0
+ num_of_clusters = 6, width = 416, height = 416
+ read labels from 1590 images
+ loaded          image: 1590     box: 2779
+ all loaded.
+ calculating k-means++ ...
+ iterations = 32
+
+counters_per_class = 1228, 1551
+ avg IoU = 76.29 %
+
+Saving anchors to the file: anchors.txt
+anchors =  50,158,  70,274, 123,222, 116,344, 193,312, 300,359
+```
+
+### 4.2 `先驗框`的作用
+
+<img src=https://pic2.zhimg.com/v2-7472c86f84a363e23758f73cb2bfff8d_r.jpg />
+
+左图我们更希望模型选择红色的先验框，右图希望模型选择蓝色的先验框，这样使得模型更容易学习. 
+
+
 
 ## 4. Train, Test
 
