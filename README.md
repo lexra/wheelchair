@@ -32,4 +32,7 @@
 
 ### 1.2 Bounding Box Labeling Tool
 
-`Yolo-Label`
+Here we use the `YoloLabel` for Bounding Box Labeling. 
+
+![image](https://github.com/lexra/wheelchair/assets/33512027/6dc506da-9faf-4092-bccb-d0ea569d3a1d)
+
