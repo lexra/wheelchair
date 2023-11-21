@@ -131,7 +131,7 @@ subdivisions=1
 classes=2
 ```
 
-### 3.3.4 filters
+#### 3.3.4 filters
 
 Calculate filters according to the following formula: `filters=21`
 
@@ -165,6 +165,12 @@ jitter=.3
 ignore_thresh = .7
 truth_thresh = 1
 random=1
+```
+
+## Training
+
+```bash
+../darknet detector train cfg/${NAME}.data ${CFG} ${WEIGHTS} ${GPUS} -mjpeg_port 8090 -map
 ```
 
 
