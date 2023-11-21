@@ -85,7 +85,7 @@ append_train_test_list date-20230821 jpg
 append_train_test_list kaggle jpg
 ```
 
-Test List occupied one-tenth, and Train List occupied nine-tenth. 
+Test List occupied `10%`, and Train List occupied `90%`. 
 
 ## 3. yolov3-tiny.cfg, yolov3-tiny.data, yolov3-tiny.name
 
