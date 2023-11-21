@@ -112,16 +112,19 @@ backup=/work/Yolo-Fastest/wheelchair/backup
 
 ### 3.3 yolov3-tiny.cfg
 
+#### 3.3.1 Download
+
 ```bash
 wget https://github.com/pjreddie/darknet/blob/master/cfg/yolov3-tiny.cfg
 ```
 
-For training, batch=32 and subdivisions=1 . 
+#### 3.3.2 Batch, Subdivisions
 
 ```bash
 batch=32
 subdivisions=1
 ```
+
 
 
 
