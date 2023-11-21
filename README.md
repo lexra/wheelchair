@@ -201,7 +201,8 @@ mean average precision (mAP@0.50) = 0.933629, or 93.36 %
 ### 4.3  Test
 
 ```bash
-../darknet detector test cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg backup/yolov3-tiny_final.weights pixmaps/push_wheelchair.jpg -ext_output -dont_show
+../darknet detector test cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg \
+    backup/yolov3-tiny_final.weights pixmaps/push_wheelchair.jpg -ext_output -dont_show
 ```
 
 
