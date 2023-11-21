@@ -290,7 +290,7 @@ anchors =  50,158,  70,274, 123,222, 116,344, 193,312, 300,359
 * -num_of_clusters: 需要几组. tiny的6组, yolo的9组.
 * YOLOv3 的 `anchor` 是是相对于输入图片的, 比如 320x224 的图片. 
 
-### 4.2 `先驗框`的作用
+### 4.2 <a href=https://zhuanlan.zhihu.com/p/338147028>先驗框</a> 的作用
 
 <img src=https://pic2.zhimg.com/v2-7472c86f84a363e23758f73cb2bfff8d_r.jpg />
 
