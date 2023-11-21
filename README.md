@@ -13,8 +13,8 @@
               |                          + 00001.jpg
               |                          + ...
               |
-              +--- [mobilityaids]  ------+ m00000.jpg
-              |                          + m00001.jpg
+              +--- [mobilityaids]  ------+ m00000.png
+              |                          + m00001.png
               |                          + ...
               |
               +--- [person]        ------+ p00000.jpg
