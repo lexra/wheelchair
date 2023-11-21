@@ -515,22 +515,28 @@ Download cuDNN v8.9.5 (cudnn-local-repo-ubuntu2004-8.9.5.30_1.0-1_amd64.deb)
 
 #### 2.2 Nvidia-driver Installation
 
-```
+```bash
 sudo apt update && sudo apt install -y nvidia-driver-535
 ```
 
 #### 2.3 Upgrade
 
-```
-sudo apt ugrade || sudo dpkg -i --force-overwrite /var/cache/apt/archives/nvidia-kernel-common-535_535.129.03-0ubuntu1_amd64.deb
+```bash
+sudo apt ugrade || sudo dpkg -i --force-overwrite \
+    /var/cache/apt/archives/nvidia-kernel-common-535_535.129.03-0ubuntu1_amd64.deb
 ```
 
 #### 2.4 Cuda-toolkit Installation
 
+```bash
 sudo apt install -y cuda-compat-12-2 cuda-toolkit-12-2
+```
 
-Note: do not install nvidia-cuda-toolkit; if already installed 
+Note: do not install `nvidia-cuda-toolkit`; if already installed, use the following to remove: 
+
+```
 apt autoremove nvidia-cuda-toolkit -- purge
+```
 
 #### 2.5 cuDNN Installation
 
