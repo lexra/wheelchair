@@ -1,6 +1,7 @@
 # Dataset for YOLOv3 Wheelchair Detection
 
-![image](https://github.com/lexra/wheelchair/assets/33512027/e61e8897-96de-4653-a72b-3c2bcf98a21b)
+<img src=https://github.com/lexra/wheelchair/assets/33512027/e61e8897-96de-4653-a72b-3c2bcf98a21b width=600 />
+
 
 ## 1. Custom Dataset
 
@@ -46,7 +47,7 @@ width, height represent width and height of the bounding box.
 And we use the <a href=https://github.com/developer0hye/Yolo_Label>YoloLabel</a> for Bounding Box Labeling of a given Assortment Directory. 
 
 
-<img src=https://github.com/lexra/wheelchair/assets/33512027/bd262a8b-75ac-4e5a-9b45-497bb62422d0 width=800/>
+<img src=https://github.com/lexra/wheelchair/assets/33512027/bd262a8b-75ac-4e5a-9b45-497bb62422d0 width=600/>
 
 ```bash
 ls -l datasets/kaggle/00314.jpg
