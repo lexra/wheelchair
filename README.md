@@ -51,6 +51,14 @@ cat datasets/kaggle/00314.txt
 
 As the picture, `kaggle/00314.jpg`, above, The Bounding Box txt file, `kaggle/00314.txt`, is generated accordingly. 
 
+The format of the annotation is: 
+
+```
+<class> <x> <y> <width> <height> 
+ex: 0 0.25 0.44 0.5 0.8
+class is the object class, (x,y) are centre coordinates of the bounding box. width, height represent width and height of the bounding box
+```
+
 ## 2. Generating Train List and Test List 
 
 ### 2.1 function append_train_test_list ()
