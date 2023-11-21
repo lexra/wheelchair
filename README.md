@@ -180,18 +180,28 @@ truth_thresh = 1
 random=1
 ```
 
-## Training
+## 4. Train, Test
+
+### 4.1 Train
 
 ```bash
-NAME=yolo-wheelchair
-#NAME=yolov3-tiny
-CFG="cfg/${NAME}.cfg"
-GPUS="-gpus 0"
-WEIGHTS=""
-WIDTH=$(cat ${CFG} | grep width | awk -F '=' '{print $2}')
-HEIGHT=$(cat ${CFG} | grep height | awk -F '=' '{print $2}')
+../darknet detector train cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg backup/yolov3-tiny_last.weights -gpus 0 -dont_show -map
+```
 
-../darknet detector train cfg/${NAME}.data ${CFG} ${WEIGHTS} ${GPUS} -mjpeg_port 8090 -map
+### 4.2  mean Average Precision (mAP@0.50)
+
+```bash
+../darknet detector map cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg backup/yolov3-tiny_final.weights -iou_thresh 0.5
+```
+
+```bash
+mean average precision (mAP@0.50) = 0.933629, or 93.36 %
+```
+
+### 4.3  Test
+
+```bash
+../darknet detector test cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg backup/yolov3-tiny_final.weights pixmaps/push_wheelchair.jpg -ext_output -dont_show
 ```
 
 
