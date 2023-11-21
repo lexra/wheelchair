@@ -128,6 +128,43 @@ backup=/work/Yolo-Fastest/wheelchair/backup
 
 Download the `yolov3-tiny.cfg` from https://github.com/pjreddie/darknet/blob/master/cfg/yolov3-tiny.cfg . 
 
+```python
+# Testing(此处下面的两行，测试的时候开启即可)
+#batch=1                 # 每batch个样本更新一次参数。
+#subdivisions=1          # 如果内存不够大，将batch分割为subdivisions个子batch，每个子batch的大小为batch/subdivisions。
+
+# Training(此处下面的两行，训练的时候开启即可)
+batch=64                 # 表示网络积累多少个样本后进行一次正向传播
+subdivisions=16          # 将一个batch的图片分sub次完成网络的正向传播
+
+width=416                # 输入图像的宽
+height=416               # 输入图像的高
+channels=3               # 输入图像的通道数
+momentum=0.9             # 动量系数
+decay=0.0005             # 权重衰减正则项，防止过拟合
+
+# 下面四行，是数据增强的参数
+angle=0                  # 通过旋转角度来生成更多训练样本
+saturation = 1.5         # 通过调整饱和度来生成更多训练样本
+exposure = 1.5           # 通过调整曝光量来生成更多训练样本
+hue=.1                   # 通过调整色调来生成更多训练样本
+
+learning_rate=0.001      # 初始学习率
+burn_in=1000             #
+max_batches = 500200     # 训练达到max_batches后停止学习
+policy=steps             # 调整学习率的policy，有如下policy：CONSTANT, STEP, EXP, POLY, STEPS, SIG, RANDOM
+steps=400000,450000      # 根据batch_num调整学习率
+scales=.1,.1             # 学习率变化的比例，累计相乘
+
+[convolutional]
+batch_normalize=1        # 是否做BN
+filters=32               # 卷积核的个数，也是输出的特征图的维度
+size=3                   # 卷积核的尺寸3*3
+stride=1                 # 做卷积运算的步长
+pad=1                    # 如果pad为0,padding由 padding参数指定。如果pad为1，padding大小为size/2
+activation=leaky
+```
+
 #### 3.3.1 Channels
 
 ```python
