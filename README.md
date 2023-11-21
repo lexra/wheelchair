@@ -576,7 +576,58 @@ https://www.youtube.com/watch?v=X8HGhFUgquk
 https://youtu.be/uQRnllNBcfU
 ```
 
+### 4. Miniconda
 
+#### 4.1 Download
+
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+
+#### 4.2 Miniconda Install
+
+```
+bash ./Miniconda3-latest-Linux-x86_64.sh
+// 安裝完可以把他刪了
+rm ./Miniconda3-latest-Linux-x86_64.sh
+```
+
+#### 4.3 PATH
+
+```
+vim ~/.bashrc
+export PATH="$HOME/miniconda3/bin":$PATH
+```
+
+#### 4.4 Create a new `ENV_NAME`
+
+```
+conda create -n ENV_NAME python=3.7
+```
+
+#### 4.4 Activate / Deactivate `ENV_NAME`
+
+```
+//激活環境，此時可以安裝你需要的套件
+conda activate ENV_NAME
+//退出環境
+conda deactivate
+```
+
+#### 4.5 Package Install
+
+```
+//例如安裝資料處理常用的pandas
+conda install pandas
+//或是
+pip install pandas
+```
+
+#### 4.5 Remove `ENV_NAME`
+
+```
+conda remove --name ENV_NAME --all
+```
 
 
 
