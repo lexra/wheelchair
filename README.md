@@ -120,14 +120,14 @@ wget https://github.com/pjreddie/darknet/blob/master/cfg/yolov3-tiny.cfg
 
 #### 3.3.2 Batch, Subdivisions
 
-```bash
+```python
 batch=32
 subdivisions=1
 ```
 
 #### 3.3.3 classes
 
-```bash
+```python
 ...
 classes=2
 ...
