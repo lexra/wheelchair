@@ -99,14 +99,14 @@ Test List occupied `10%`, and Train List occupied `90%`.
 
 ## 3. yolov3-tiny.cfg, yolov3-tiny.data, yolov3-tiny.name
 
-### 3.1 yolov3-tiny.name
+### 3.1 Yolov3-tiny.name
 
 ```bash
 person
 wheelchair
 ```
 
-### 3.2 yolov3-tiny.data
+### 3.2 Yolov3-tiny.data
 
 ```bash
 mkdir -p backup
@@ -146,13 +146,15 @@ width=416
 height=416
 ```
 
-#### 3.3.4 classes
+#### 3.3.4 Classes
 
 ```python
 classes=2
 ```
 
-#### 3.3.5 filters
+Note: the classes value here must precisely conform to the one in `Yolov3-tiny.data`. 
+
+#### 3.3.5 Filters
 
 Calculate filters according to the following formula: `filters=21`
 
@@ -190,7 +192,7 @@ truth_thresh = 1
 random=1
 ```
 
-#### 3.3.6 mask
+#### 3.3.6 Mask
 
 ```python
 [yolo]
