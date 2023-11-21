@@ -133,13 +133,11 @@ classes=2
 
 ### 3.3.4 filters
 
-Calculate filters according to the following formula: 
+Calculate filters according to the following formula: `filters=21`
 
 ```python
 filters = (classes + 5) * 3
 ```
-
-filters=21
 
 ```python
 filters=21
