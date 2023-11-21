@@ -220,6 +220,20 @@ only the 0/1/2 pairs , `10,14,  23,27,  37,58`, work.
     backup/yolov3-tiny_last.weights -gpus 0 -dont_show -map
 ```
 
+```bash
+...
+Total BFLOPS 0.054
+avg_outputs = 15205
+ Allocate additional workspace_size = 52.73 MB
+Loading weights from backup/yolo-wheelchair_last.weights...
+ seen 64, trained: 16006 K-images (250 Kilo-batches_64)
+Done! Loaded 131 layers from weights-file
+Learning Rate: 0.001, Momentum: 0.949, Decay: 0.0005
+ Detection layer: 121 - type = 28
+ Detection layer: 130 - type = 28
+Saving weights to /work/Yolo-Fastest/wheelchair/backup/yolo-wheelchair_final.weights
+```
+
 After training completed, `backup/yolov3-tiny_final.weights` is generated. 
 
 ### 4.2  mean Average Precision (mAP@0.50)
