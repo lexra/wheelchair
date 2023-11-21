@@ -576,7 +576,7 @@ https://www.youtube.com/watch?v=X8HGhFUgquk
 https://youtu.be/uQRnllNBcfU
 ```
 
-### 4. Miniconda
+### 4. `Miniconda`
 
 #### 4.1 Download
 
@@ -584,7 +584,7 @@ https://youtu.be/uQRnllNBcfU
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
-#### 4.2 Miniconda Install
+#### 4.2 `Miniconda` Install
 
 ```
 bash ./Miniconda3-latest-Linux-x86_64.sh
