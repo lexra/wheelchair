@@ -116,7 +116,12 @@ backup=/work/Yolo-Fastest/wheelchair/backup
 wget https://github.com/pjreddie/darknet/blob/master/cfg/yolov3-tiny.cfg
 ```
 
+For training, batch=32 and subdivisions=1 . 
 
+```bash
+batch=32
+subdivisions=1
+```
 
 
 
