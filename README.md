@@ -287,9 +287,9 @@ anchors =  50,158,  70,274, 123,222, 116,344, 193,312, 300,359
 
 左图我们更希望模型选择红色的先验框，右图希望模型选择蓝色的先验框，这样使得模型更容易学习. 
 
-## 4. Train, Test
+## 5. Train, Test
 
-### 4.1 Train
+### 5.1 Train
 
 ```bash
 ../darknet detector train cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg \
@@ -312,7 +312,66 @@ Saving weights to /work/Yolo-Fastest/wheelchair/backup/yolo-wheelchair_final.wei
 
 After training completed, `backup/yolov3-tiny_final.weights` is generated. 
 
-### 4.2  mean Average Precision (mAP@0.50)
+### 5.1.1 Checkpoint
+
+```bash
+regfae@regulus-ASUS:/work/Yolo-Fastest/wheelchair$ ls -l backup/yolov3-tiny*
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 09:07 backup/yolov3-tiny_100000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 03:49 backup/yolov3-tiny_10000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 09:43 backup/yolov3-tiny_110000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 10:18 backup/yolov3-tiny_120000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 10:53 backup/yolov3-tiny_130000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 11:29 backup/yolov3-tiny_140000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 12:04 backup/yolov3-tiny_150000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 12:39 backup/yolov3-tiny_160000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 13:15 backup/yolov3-tiny_170000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 13:51 backup/yolov3-tiny_180000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 14:27 backup/yolov3-tiny_190000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 15:02 backup/yolov3-tiny_200000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 04:24 backup/yolov3-tiny_20000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 15:38 backup/yolov3-tiny_210000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 16:14 backup/yolov3-tiny_220000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 16:50 backup/yolov3-tiny_230000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 17:26 backup/yolov3-tiny_240000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 18:02 backup/yolov3-tiny_250000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 18:37 backup/yolov3-tiny_260000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 19:13 backup/yolov3-tiny_270000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 19:48 backup/yolov3-tiny_280000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 20:24 backup/yolov3-tiny_290000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 21:00 backup/yolov3-tiny_300000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 04:59 backup/yolov3-tiny_30000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 21:35 backup/yolov3-tiny_310000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 22:11 backup/yolov3-tiny_320000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 22:47 backup/yolov3-tiny_330000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 23:22 backup/yolov3-tiny_340000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 23:58 backup/yolov3-tiny_350000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 00:33 backup/yolov3-tiny_360000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 01:08 backup/yolov3-tiny_370000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 01:44 backup/yolov3-tiny_380000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 02:20 backup/yolov3-tiny_390000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 02:56 backup/yolov3-tiny_400000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 05:35 backup/yolov3-tiny_40000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 03:31 backup/yolov3-tiny_410000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 04:07 backup/yolov3-tiny_420000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 04:43 backup/yolov3-tiny_430000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 05:18 backup/yolov3-tiny_440000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 05:54 backup/yolov3-tiny_450000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 06:29 backup/yolov3-tiny_460000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 07:06 backup/yolov3-tiny_470000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 07:41 backup/yolov3-tiny_480000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 08:17 backup/yolov3-tiny_490000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 08:52 backup/yolov3-tiny_500000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 06:11 backup/yolov3-tiny_50000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 06:46 backup/yolov3-tiny_60000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 07:21 backup/yolov3-tiny_70000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 07:56 backup/yolov3-tiny_80000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 08:32 backup/yolov3-tiny_90000.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 18 07:34 backup/yolov3-tiny_best.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 21 16:33 backup/yolov3-tiny_final.weights
+-rw-rw-r-- 1 regfae regfae 34714236 Nov 19 08:53 backup/yolov3-tiny_last.weights
+```
+
+### 5.2  mean Average Precision (mAP@0.50)
 
 ```bash
 ../darknet detector map cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg \
@@ -377,7 +436,7 @@ class_id = 1, name = wheelchair, ap = 96.62%     (TP = 172, FP = 2)
  mean average precision (mAP@0.50) = 0.933629, or 93.36 %
 ```
 
-### 4.3  Test
+### 5.3  Test
 
 ```bash
 ../darknet detector test cfg/yolov3-tiny.data cfg/yolov3-tiny.cfg \
