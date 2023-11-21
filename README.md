@@ -501,6 +501,58 @@ person: 100%    (left_x:  191   top_y:  103   width:  267   height:  726)
 wheelchair: 100%        (left_x:  334   top_y:  233   width:  627   height:  639)
 ```
 
+## Appendix
+
+### 1. CUDA Forward Compatible Upgrade / NVIDIA Kernel Mode Driver
+
+![image](https://github.com/lexra/wheelchair/assets/33512027/081048bf-1190-4194-8821-9065b893bf8c)
+
+### 2. Nvidia-driver-535 + cuda 12.2 + cudnn 8.9 for Ubuntu-20.0.4
+
+#### 2.1 cuDNN v8.9.5 Download
+
+Download cuDNN v8.9.5 (cudnn-local-repo-ubuntu2004-8.9.5.30_1.0-1_amd64.deb)
+
+#### 2.2 Nvidia-driver Installation
+
+```
+sudo apt update && sudo apt install -y nvidia-driver-535
+```
+
+#### 2.3 Upgrade
+
+```
+sudo apt ugrade || sudo dpkg -i --force-overwrite /var/cache/apt/archives/nvidia-kernel-common-535_535.129.03-0ubuntu1_amd64.deb
+```
+
+#### 2.4 Cuda-toolkit Installation
+
+sudo apt install -y cuda-compat-12-2 cuda-toolkit-12-2
+
+Note: do not install nvidia-cuda-toolkit; if already installed 
+apt autoremove nvidia-cuda-toolkit -- purge
+
+#### 2.5 cuDNN Installation
+
+```
+sudo dpkg -i cudnn-local-repo-ubuntu2004-8.9.5.30_1.0-1_amd64.deb
+```
+
+```
+sudo apt install -y libcudnn8
+```
+
+#### 2.5 Nccl Installation
+
+```
+sudo apt install -y libnccl2
+```
+
+
+
+
+
+
 
 
 
