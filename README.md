@@ -131,7 +131,7 @@ subdivisions=1
 classes=2
 ```
 
-### 3.3.4
+### 3.3.4 filters
 
 Calculate filters according to the following formula: 
 
