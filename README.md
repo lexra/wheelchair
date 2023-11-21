@@ -150,6 +150,8 @@ Calculate filters according to the following formula: `filters=21`
 filters = (classes + 5) * 3
 ```
 
+There are 2 pairs of `[yolo]` brackets for `yolov3-tiny.cfg`; the only 2, `filters=`, that we need modify locate just above and nearest the `[yolo]` brackets. 
+
 ```python
 filters=21
 
