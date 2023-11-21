@@ -103,6 +103,10 @@ mkdir -p backup
 ```
 
 ```bash
+ln -s ../data .
+```
+
+```bash
 classes=2
 train=/work/Yolo-Fastest/wheelchair/train.txt
 valid=/work/Yolo-Fastest/wheelchair/test.txt
