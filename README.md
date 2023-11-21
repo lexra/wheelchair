@@ -250,7 +250,16 @@ mask = 0,1,2
 anchors = 10,14,  23,27,  37,58,  81,82,  135,169,  344,319
 ```
 
-And here only the 0/1/2 pairs , `10,14,  23,27,  37,58`, work.
+And here only the 0/1/2 pairs , `10,14,  23,27,  37,58`, work. 
+
+#### 3.3.6 max_batches
+
+```python
+max_batches = (classes * 2000)
+```
+
+In order to save time, we could modify the `max_batches` according to the formula described above. 
+
 
 ## 4. Anchors
 
