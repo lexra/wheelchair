@@ -526,6 +526,8 @@ sudo apt ugrade || sudo dpkg -i --force-overwrite \
     /var/cache/apt/archives/nvidia-kernel-common-535_535.129.03-0ubuntu1_amd64.deb
 ```
 
+The upgrade would be failed; use `sudo dpkg -i --force-overwrite ...` to resolve this bug. 
+
 #### 2.4 Cuda-toolkit Installation
 
 ```bash
