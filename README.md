@@ -98,7 +98,11 @@ wheelchair
 
 ### 3.2 yolov3-tiny.data
 
+```bash
+mkdir -p backup
 ```
+
+```bash
 classes=2
 train=/work/Yolo-Fastest/wheelchair/train.txt
 valid=/work/Yolo-Fastest/wheelchair/test.txt
