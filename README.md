@@ -218,6 +218,8 @@ only the 0/1/2 pairs , `10,14,  23,27,  37,58`, work.
     backup/yolov3-tiny_last.weights -gpus 0 -dont_show -map
 ```
 
+After training completed, `backup/yolov3-tiny_final.weights` is generated. 
+
 ### 4.2  mean Average Precision (mAP@0.50)
 
 ```bash
