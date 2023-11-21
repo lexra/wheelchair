@@ -56,14 +56,11 @@ As the picture above, The Bounding Box txt file, `kaggle/00314.txt`, is generate
 
 ```bash
 function append_train_test_list () {
-        local D=$1
-        local E=$2
-        local N=0
-        local R=0
+        local D=$1; local E=$2; local N=0; local R=0;
+
         for F in `find $(pwd)/datasets/${D} -name '*.txt'` ; do
                 R=$(($N % 10))
                 if [ ${R} -eq 1 ]; then
-                        echo ${F} | sed "s|.txt$|.${E}|"
                         echo ${F} | sed "s|.txt$|.${E}|" >> test.txt
                 else echo ${F} | sed "s|.txt$|.${E}|"
                         echo ${F} | sed "s|.txt$|.${E}|" >> train.txt
