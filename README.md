@@ -256,10 +256,15 @@ And here only the 0/1/2 pairs , `10,14,  23,27,  37,58`, work.
 
 ```python
 max_batches = (classes * 2000)
+steps = max_batches * 0.8, max_batches * 0.9
 ```
 
 In order to save time, we could modify the `max_batches` according to the formula described above. 
 
+```
+max_batches=4000
+steps=3200,3600
+```
 
 ## 4. Anchors
 
