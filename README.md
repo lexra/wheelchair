@@ -8,28 +8,28 @@
 ### 1.1 Assortment Directories
 
 ```bash
-[datasets] ---+--- [date-20230821] ------+ d00000.jpg
-              |                          + d00001.jpg
+[datasets] ---+--- [date-20230821] ------+--- d00000.jpg
+              |                          +--- d00001.jpg
               |                          + ...
               |
-              +--- [kaggle]        ------+ 00000.jpg
-              |                          + 00001.jpg
+              +--- [kaggle]        ------+--- 00000.jpg
+              |                          +--- 00001.jpg
               |                          + ...
               |
-              +--- [mobilityaids]  ------+ m00000.png
-              |                          + m00001.png
+              +--- [mobilityaids]  ------+--- m00000.png
+              |                          +--- m00001.png
               |                          + ...
               |
-              +--- [person]        ------+ p00000.jpg
-              |                          + p00001.jpg
+              +--- [person]        ------+--- p00000.jpg
+              |                          +--- p00001.jpg
               |                          + ...
               |
-              +--- [roboflow]      ------+ p00000.jpg
-              |                          + p00001.jpg
+              +--- [roboflow]      ------+--- p00000.jpg
+              |                          +--- p00001.jpg
               |                          + ...
               |
-              +--- [wheelchair]    ------+ w00000.jpg
-                                         + w00001.jpg
+              +--- [wheelchair]    ------+--- w00000.jpg
+                                         +--- w00001.jpg
                                          + ...
 ```
 
