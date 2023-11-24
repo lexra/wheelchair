@@ -272,7 +272,8 @@ steps=3200,3600
 ### 4.1 Calc_anchors
 
 ```bash
- echo '' | ../darknet detector calc_anchors cfg/yolov3-tiny.data -num_of_clusters 6 -width 416 -height 416 -dont_show
+ echo '' | ../darknet detector calc_anchors cfg/yolov3-tiny.data -num_of_clusters 6 \
+              -width 416 -height 416 -dont_show
 ```
 
 ```bash
