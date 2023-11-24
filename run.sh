@@ -7,7 +7,7 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 
 ##############################
-NAME=yolo-wheelchair
+NAME=yolo-fastest
 #NAME=yolov3-tiny
 CFG="cfg/${NAME}.cfg"
 GPUS="-gpus 0"
