@@ -542,7 +542,7 @@ sudo apt install -y cuda-compat-12-2 cuda-toolkit-12-2
 Note: do not install the `nvidia-cuda-toolkit`; if already installed, use the following to remove: 
 
 ```
-apt autoremove nvidia-cuda-toolkit -- purge
+apt autoremove nvidia-cuda-toolkit --purge
 ```
 
 #### 2.5 cuDNN Installation
