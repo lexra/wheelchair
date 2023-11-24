@@ -29,7 +29,7 @@ function append_train_test_list () {
 }
 
 ##############################
-rm -rf train.txt test.txt
+rm -rf train.txt test.txt predictions.jpg data
 
 append_train_test_list mobilityaids png
 append_train_test_list roboflow jpg
