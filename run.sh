@@ -7,8 +7,8 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 
 ##############################
-NAME=yolo-fastest
-#NAME=yolov3-tiny
+#NAME=yolo-fastest
+NAME=yolov3-tiny
 CFG="cfg/${NAME}.cfg"
 GPUS="-gpus 0"
 WEIGHTS=""
@@ -47,8 +47,8 @@ echo '' | ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -
 [ 0 -ne $(cat ${CFG} | grep "^anchors" | awk -F '=' '{print $2}' | wc -l) ] && cat ${CFG} | grep "^anchors" | awk -F '=' '{print $2}' | tail -1 > cfg/${NAME}.anchors
 
 ##############################
-export LD_LIBRARY_PATH=/usr/local/cuda/targets/x86_64-linux/lib
-export PATH=/usr/local/cuda/bin:${PATH}
+LD_LIBRARY_PATH=/usr/local/cuda/targets/x86_64-linux/lib
+PATH=/usr/local/cuda/bin:${PATH}
 
 ##############################
 [ "$TERM" == "xterm" ] && GPUS="${GPUS} -dont_show"
