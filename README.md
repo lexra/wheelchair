@@ -134,7 +134,8 @@ Download the `yolov3-tiny.cfg` from https://github.com/pjreddie/darknet/blob/mas
 ```python
 # Testing(此处下面的两行，测试的时候开启即可)
 #batch=1                 # 每batch个样本更新一次参数。
-#subdivisions=1          # 如果内存不够大，将batch分割为subdivisions个子batch，每个子batch的大小为batch/subdivisions。
+#subdivisions=1          # 如果内存不够大，将batch分割为subdivisions个子batch，
+                         # 每个子batch的大小为batch/subdivisions。
 
 # Training(此处下面的两行，训练的时候开启即可)
 batch=64                 # 表示网络积累多少个样本后进行一次正向传播
@@ -271,7 +272,8 @@ steps=3200,3600
 ### 4.1 Calc_anchors
 
 ```bash
- echo '' | ../darknet detector calc_anchors cfg/yolov3-tiny.data -num_of_clusters 6 -width 416 -height 416 -dont_show
+ echo '' | ../darknet detector calc_anchors cfg/yolov3-tiny.data -num_of_clusters 6 \
+              -width 416 -height 416 -dont_show
 ```
 
 ```bash
@@ -604,13 +606,19 @@ vim ~/.bashrc
 export PATH="$HOME/miniconda3/bin":$PATH
 ```
 
-#### 4.4 Create a new `ENV_NAME`
+#### 4.4 ENV list
+
+```
+conda env list
+```
+
+#### 4.5 Create a new `ENV_NAME`
 
 ```
 conda create -n ENV_NAME python=3.7
 ```
 
-#### 4.4 Activate / Deactivate `ENV_NAME`
+#### 4.6 Activate / Deactivate `ENV_NAME`
 
 ```
 //激活環境，此時可以安裝你需要的套件
@@ -619,7 +627,7 @@ conda activate ENV_NAME
 conda deactivate
 ```
 
-#### 4.5 Package Install
+#### 4.7 Package Install
 
 ```
 //例如安裝資料處理常用的pandas
@@ -628,14 +636,11 @@ conda install pandas
 pip install pandas
 ```
 
-#### 4.5 Remove `ENV_NAME`
+#### 4.8 Remove `ENV_NAME`
 
 ```
 conda remove --name ENV_NAME --all
 ```
-
-
-
 
 
 
