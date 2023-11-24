@@ -134,7 +134,8 @@ Download the `yolov3-tiny.cfg` from https://github.com/pjreddie/darknet/blob/mas
 ```python
 # Testing(此处下面的两行，测试的时候开启即可)
 #batch=1                 # 每batch个样本更新一次参数。
-#subdivisions=1          # 如果内存不够大，将batch分割为subdivisions个子batch，每个子batch的大小为batch/subdivisions。
+#subdivisions=1          # 如果内存不够大，将batch分割为subdivisions个子batch，
+                         # 每个子batch的大小为batch/subdivisions。
 
 # Training(此处下面的两行，训练的时候开启即可)
 batch=64                 # 表示网络积累多少个样本后进行一次正向传播
