@@ -13,8 +13,8 @@ CFG="cfg/${NAME}.cfg"
 GPUS="-gpus 0"
 WEIGHTS=""
 
-WIDTH=$(cat ${CFG} | grep width | awk -F '=' '{print $2}')
-HEIGHT=$(cat ${CFG} | grep height | awk -F '=' '{print $2}')
+WIDTH=$(cat ${CFG} | grep "^width" | awk -F '=' '{print $2}')
+HEIGHT=$(cat ${CFG} | grep "^height" | awk -F '=' '{print $2}')
 
 function append_train_test_list () {
 	local D=$1
@@ -44,7 +44,7 @@ sed "s|/work/Yolo-Fastest/wheelchair|`pwd`|" -i cfg/${NAME}.data
 ##############################
 echo '' && echo -e "${YELLOW} echo '' | ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -width ${WIDTH} -height ${HEIGHT} -dont_show ${NC}"
 echo '' | ../darknet detector calc_anchors cfg/${NAME}.data -num_of_clusters 6 -width ${WIDTH} -height ${HEIGHT} -dont_show
-[ 0 -ne $(cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | wc -l) ] && cat ${CFG} |grep anchors | awk -F '=' '{print $2}' | tail -1 > cfg/${NAME}.anchors
+[ 0 -ne $(cat ${CFG} | grep "^anchors" | awk -F '=' '{print $2}' | wc -l) ] && cat ${CFG} | grep "^anchors" | awk -F '=' '{print $2}' | tail -1 > cfg/${NAME}.anchors
 
 ##############################
 export LD_LIBRARY_PATH=/usr/local/cuda/targets/x86_64-linux/lib
