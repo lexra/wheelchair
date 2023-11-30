@@ -510,137 +510,26 @@ wheelchair: 100%        (left_x:  334   top_y:  233   width:  627   height:  639
 
 ## Appendix
 
-### 1. CUDA Forward Compatible Upgrade / NVIDIA Kernel Mode Driver
+### 1. Mobility-aids Pushing-Wheelchair
 
-![image](https://github.com/lexra/wheelchair/assets/33512027/081048bf-1190-4194-8821-9065b893bf8c)
-
-### 2. Nvidia-driver-535 + cuda 12.2 + cudnn 8.9 for Ubuntu-20.0.4
-
-#### 2.1 cuDNN v8.9.5 Download
-
-Download cuDNN v8.9.5 (cudnn-local-repo-ubuntu2004-8.9.5.30_1.0-1_amd64.deb)
-
-#### 2.2 Nvidia-driver Installation
-
-```bash
-sudo apt update && sudo apt install -y nvidia-driver-535
-```
-
-#### 2.3 Upgrade
-
-```bash
-sudo apt ugrade || sudo dpkg -i --force-overwrite \
-    /var/cache/apt/archives/nvidia-kernel-common-535_535.129.03-0ubuntu1_amd64.deb
-```
-
-The upgrade would be failed; use `sudo dpkg -i --force-overwrite ...` to resolve this bug. 
-
-#### 2.4 Cuda-toolkit Installation
-
-```bash
-sudo apt install -y cuda-compat-12-2 cuda-toolkit-12-2
-```
-
-Note: do not install the `nvidia-cuda-toolkit`; if already installed, use the following to remove: 
-
-```
-apt autoremove nvidia-cuda-toolkit --purge
-```
-
-#### 2.5 cuDNN Installation
-
-```
-sudo dpkg -i cudnn-local-repo-ubuntu2004-8.9.5.30_1.0-1_amd64.deb
-```
-
-```
-sudo apt install -y libcudnn8
-```
-
-#### 2.5 Nccl Installation
-
-```
-sudo apt install -y libnccl2
-```
-
-### 3. Mobility-aids Pushing-Wheelchair
-
-#### 3.1 People and Their Mobility Aids
+#### 1.1 People and Their Mobility Aids
 
 ```bash
 http://mobility-aids.informatik.uni-freiburg.de/
 ```
 
-#### 3.2 Person Guidance Scenario: Deep Detection of People and their Mobility Aids for a Hospital Robot
+#### 1.2 Person Guidance Scenario: Deep Detection of People and their Mobility Aids for a Hospital Robot
 
 ```bash
 https://www.youtube.com/watch?v=X8HGhFUgquk
 ```
 
-#### 3.3 Deep Detection of People and their Mobility Aids for a Hospital Robot
+#### 1.3 Deep Detection of People and their Mobility Aids for a Hospital Robot
 
 ```bash
 https://youtu.be/uQRnllNBcfU
 ```
 
-### 4. `Miniconda`
-
-#### 4.1 Download
-
-```
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-```
-
-#### 4.2 `Miniconda` Install
-
-```
-bash ./Miniconda3-latest-Linux-x86_64.sh
-// 安裝完可以把他刪了
-rm ./Miniconda3-latest-Linux-x86_64.sh
-```
-
-#### 4.3 PATH
-
-```
-vim ~/.bashrc
-export PATH="$HOME/miniconda3/bin":$PATH
-```
-
-#### 4.4 ENV list
-
-```
-conda env list
-```
-
-#### 4.5 Create a new `ENV_NAME`
-
-```
-conda create -n ENV_NAME python=3.7
-```
-
-#### 4.6 Activate / Deactivate `ENV_NAME`
-
-```
-//激活環境，此時可以安裝你需要的套件
-conda activate ENV_NAME
-//退出環境
-conda deactivate
-```
-
-#### 4.7 Package Install
-
-```
-//例如安裝資料處理常用的pandas
-conda install pandas
-//或是
-pip install pandas
-```
-
-#### 4.8 Remove `ENV_NAME`
-
-```
-conda remove --name ENV_NAME --all
-```
 
 
 
